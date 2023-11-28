@@ -74,10 +74,10 @@ function getLocation() {
 
 async function getSunStatsByLocation(longitude, latitude, city) {
     const date = new Date();
-    const convertedDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+    const convertedDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
     const todaysData = await getSunData(longitude, latitude, convertedDate);
     date.setDate(date.getDate() + 1);
-    const tomorrowDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+    const tomorrowDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
     const tomorrowsData = await getSunData(longitude, latitude, tomorrowDate);
     displayWeather(todaysData, tomorrowsData, city);
 }
